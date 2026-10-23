@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Khám phá, tìm kiếm và lưu những bộ phim yêu thích.">
+  <title>Movie Discovery | Khám phá phim</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Movie Discovery trang chủ">
+      <span class="brand-icon">🎬</span>
+      <span>Movie<span class="brand-accent">Discovery</span></span>
+    </a>
+    <button id="themeToggle" class="theme-btn" type="button" aria-pressed="false">🌙 Chế độ tối</button>
+  </header>
+
+  <main class="app-layout">
+    <aside class="sidebar">
+      <div class="sidebar-heading">
+        <span class="heading-icon">⚙️</span>
+        <h2>Bộ lọc phim</h2>
+      </div>
+
+      <div class="filter-group">
+        <label for="searchInput">Tìm kiếm</label>
+        <input id="searchInput" type="search" placeholder="Nhập tên phim..." autocomplete="off">
+      </div>
+
+      <fieldset class="filter-group genre-fieldset">
+        <legend>Thể loại</legend>
+        <div id="genreFilters" class="genre-filters"></div>
+      </fieldset>
+
+      <div class="filter-group">
+        <label for="yearFilter">Năm phát hành từ</label>
+        <select id="yearFilter">
+          <option value="0">Tất cả các năm</option>
+          <option value="2020">Từ năm 2020</option>
+          <option value="2015">Từ năm 2015</option>
+          <option value="2010">Từ năm 2010</option>
+          <option value="2000">Từ năm 2000</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="sortFilter">Sắp xếp theo</label>
+        <select id="sortFilter">
+          <option value="default">Mặc định</option>
+          <option value="ratingDesc">Điểm đánh giá cao nhất</option>
+          <option value="ratingAsc">Điểm đánh giá thấp nhất</option>
+          <option value="yearDesc">Năm mới nhất</option>
+          <option value="titleAsc">Tên phim A–Z</option>
+        </select>
+      </div>
+
+      <label class="favorite-filter" for="favoritesOnly">
+        <input id="favoritesOnly" type="checkbox">
+        <span>💗 Chỉ xem phim yêu thích</span>
+      </label>
+
+      <button id="resetBtn" class="reset-btn" type="button">↻ Xóa bộ lọc</button>
+      <p class="tip">💡 Mẹo: Kết hợp tìm kiếm và bộ lọc để tìm phim phù hợp với bạn.</p>
+    </aside>
+
+    <section class="main-content">
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">THẾ GIỚI ĐIỆN ẢNH</span>
+          <h1>Khám phá bộ phim<br>tiếp theo của bạn.</h1>
+          <p>Tìm kiếm những câu chuyện tuyệt vời qua từng khung hình.</p>
+          <a class="hero-link" href="#movieSection">Khám phá ngay <span>↓</span></a>
+        </div>
+        <div class="hero-play" aria-hidden="true">▶</div>
+      </section>
+
+      <section id="movieSection" class="movie-section">
+        <div class="section-heading">
+          <div>
+            <h2>Khám phá phim</h2>
+            <p>Những bộ phim đáng xem dành cho bạn.</p>
+          </div>
+          <span id="movieCount" class="movie-count">0 phim</span>
+        </div>
+        <p id="emptyMessage" class="empty-message" hidden>Không tìm thấy phim phù hợp. Hãy thử thay đổi bộ lọc nhé!</p>
+        <div id="movieGrid" class="movie-grid" aria-live="polite"></div>
+      </section>
+
+      <footer class="footer">
+        <span>🎬 Movie Discovery App</span>
+        <span>Khám phá phim theo cách của bạn.</span>
+      </footer>
+    </section>
+  </main>
+
+  <dialog id="movieDialog" class="movie-dialog">
+    <button id="closeDialog" class="dialog-close" type="button" aria-label="Đóng">✕</button>
+    <div id="movieDetails" class="movie-details"></div>
+  </dialog>
+</body>
+</html>
